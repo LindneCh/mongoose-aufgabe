@@ -20,11 +20,16 @@ const AuthorSchema = new Schema({
 AuthorSchema.virtual("name").get(function () {
   return this.family_name + ", " + this.first_name;
 });
-//funktion die die id des Authors wieder gibt, URL????
+ 
+//virtuelle Eigenschaft namens "url" es gibt eine funktion die mittels
+// id des Authors die URL wieder gibt.
 AuthorSchema.virtual("url").get(function () {
   return "/catalog/author/" + this._id;
 });
-///?
+//hier wird eine virtuelle Eigenschaft namens "lifespan"definiert, es
+//gibt eine Funktion, doie den Lebenszeitraum des Autors zurückgibt,
+// indem das "date_of_birth" und "date_of_death"in einen lesbaren
+//String umgewandelt werden.
 AuthorSchema.virtual("lifespan").get(function () {
   let lifetime_string = "";
   if (this.date_of_birth) {
