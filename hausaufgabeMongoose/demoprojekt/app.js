@@ -17,7 +17,8 @@ app.get('/', (req, res) => {
 });
 
 // Route eine Schraube
-schraubenModel.get("/sales/:id");
+schraubenModel.get("/sales/:id",(req, res) => {
+  const productId = req.params.id;});
 // Route alle Schrauben
 schraubenModel.get("/sales");
 
